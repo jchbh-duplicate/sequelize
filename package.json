@@ -1,6 +1,6 @@
 {
-  "name": "sequelize",
-  "description": "Multi dialect ORM for Node.JS/io.js",
+  "name": "skyline-sequelize",
+  "description": "Multi dialect ORM for Node.JS/io.js. Modify By Skyline",
   "version": "3.5.1",
   "author": "Sascha Depold <sascha@depold.com>",
   "contributors": [
@@ -26,10 +26,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sequelize/sequelize.git"
+    "url": "https://github.com/jchbh-duplicate/sequelize.git"
   },
   "bugs": {
-    "url": "https://github.com/sequelize/sequelize/issues"
+    "url": "https://github.com/jchbh-duplicate/sequelize/issues"
   },
   "dependencies": {
     "bluebird": "~2.9.24",

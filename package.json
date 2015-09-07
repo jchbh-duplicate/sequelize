@@ -1,7 +1,7 @@
 {
   "name": "skyline-sequelize",
   "description": "Multi dialect ORM for Node.JS/io.js. Modify By Skyline",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "author": "Sascha Depold <sascha@depold.com>",
   "contributors": [
     {

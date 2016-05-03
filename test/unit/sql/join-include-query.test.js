@@ -11,7 +11,7 @@ var Support   = require(__dirname + '/../support')
 
 // Notice: [] will be replaced by dialect specific tick/quote character when there is not dialect specific expectation but only a default expectation
 
-suite(Support.getTestDialectTeaser('SQL'), function() {  
+suite(Support.getTestDialectTeaser('SQL'), function() {
   suite('joinIncludeQuery', function () {
     var testsql = function (params, options, expectation) {
       if (expectation === undefined) {
@@ -147,7 +147,8 @@ suite(Support.getTestDialectTeaser('SQL'), function() {
         ]
       }).include[0]
     }, {
-      default: "LEFT OUTER JOIN [company] AS [Company] ON [User].[companyId] = [Company].[id] AND [Company].[name] = 'ABC'"
+      default: "LEFT OUTER JOIN [company] AS [Company] ON [User].[companyId] = [Company].[id] AND [Company].[name] = 'ABC'",
+      mssql: "LEFT OUTER JOIN [company] AS [Company] ON [User].[companyId] = [Company].[id] AND [Company].[name] = N'ABC'"
     });
 
     testsql({
@@ -270,7 +271,7 @@ suite(Support.getTestDialectTeaser('SQL'), function() {
         include: [
           {association: User.Tasks, on: {
             $or: [
-              {'$User.id_user$': '$Tasks.user_id$'},
+              {'$User.id_user$': {$col: 'Tasks.user_id'}},
               {'$Tasks.user_id$': 2}
             ]
           }}
@@ -286,7 +287,7 @@ suite(Support.getTestDialectTeaser('SQL'), function() {
       include: Sequelize.Model.$validateIncludedElements({
         model: User,
         include: [
-          {association: User.Tasks, on: {'user_id': '$User.alternative_id$'}}
+          {association: User.Tasks, on: {'user_id': {$col: 'User.alternative_id'}}}
         ]
       }).include[0]
     }, {

@@ -49,7 +49,7 @@ describe(Support.getTestDialectTeaser('Instance'), function() {
       expect(instance.get('updated_time')).to.be.an.instanceof(Date);
 
       return instance.validate().then(function(err) {
-        expect(err).to.be.equal(undefined);
+        expect(err).to.be.equal(null);
       });
     });
 
@@ -70,6 +70,29 @@ describe(Support.getTestDialectTeaser('Instance'), function() {
 
       expect(instance.get('id')).not.to.be.undefined;
       expect(instance.get('id')).to.be.ok;
+    });
+
+    it('should populate undefined columns with default value', function () {
+      var Model = current.define('Model', {
+        number1: {
+          type: DataTypes.INTEGER,
+          defaultValue: 1
+        },
+        number2: {
+          type: DataTypes.INTEGER,
+          defaultValue: 2
+        }
+      })
+        , instance;
+
+      instance = Model.build({
+        number1: undefined
+      });
+
+      expect(instance.get('number1')).not.to.be.undefined;
+      expect(instance.get('number1')).to.equal(1);
+      expect(instance.get('number2')).not.to.be.undefined;
+      expect(instance.get('number2')).to.equal(2);
     });
   });
 });

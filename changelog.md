@@ -1,9 +1,24 @@
+# Future
+- [FIXED] Postgres DECIMAL precision. (PostgreSQL) [#4893](https://github.com/sequelize/sequelize/issues/4893)
+
+# 3.23.0
+- [FIXED] Invalid query generated when using LIKE + ANY [#5736](https://github.com/sequelize/sequelize/issues/5736)
+- [FIXED] Method QueryInterface.bulkDelete no longer working when the model parameter is missing. (PostgreSQL) [#5615](https://github.com/sequelize/sequelize/issues/5615)
+- [ADDED] Context and custom options for deep creation
+- [FIXED] Dates with millisecond precision are inserted correctly in MySQL [#5855](https://github.com/sequelize/sequelize/pull/5855)
+
+# 3.22.0
+- [FIXED] Fix defaultValues getting overwritten on build
+- [FIXED] Queue queries against tedious connections
+- [ADDED] Enable type validation for all queries
+
 # 3.21.0
 - [FIXED] Confirmed that values modified in validation hooks are preserved [#3534](https://github.com/sequelize/sequelize/issues/3534)
 - [FIXED] Support lower case type names in SQLite [#5482](https://github.com/sequelize/sequelize/issues/5482)
 - [FIXED] Support calling `setAssociation` twice on `hasOne` [#5315](https://github.com/sequelize/sequelize/issues/5315)
 - [INTERNALS] Removed dependency on wellknown in favor of terraformer-wkt-parser
 - [ADDED] Benchmarking feature [#2494](https://github.com/sequelize/sequelize/issues/2494)
+- [INTERNALS] Add `Utils.mergeDeep` - allows lodash to be updated to latest version
 
 # 3.20.0
 - [ADDED] rejectOnEmpty mode [#272](https://github.com/sequelize/sequelize/issues/272) [#5480](https://github.com/sequelize/sequelize/issues/5480)
